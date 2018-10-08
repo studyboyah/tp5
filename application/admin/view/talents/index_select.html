@@ -1,0 +1,157 @@
+{include file="public/header" /}
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>取件订单</h5>
+        </div>
+        <div class="ibox-content">
+            <!--搜索框开始-->           
+            <div class="row">
+                <div class="col-sm-12">   
+                <div  class="col-sm-2" style="width: 100px">
+                    <div class="input-group" >  
+                        <a href="{:url('add_talents')}"><button class="btn btn-outline btn-primary" type="button">添加订单</button></a> 
+                    </div>
+                </div> 
+                    <form name="admin_list_sea" class="form-search" method="post" action="{:url('index_select')}">
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="key" class="form-control" name="key" value="" placeholder="输入需查询的订单号" />   
+                                <span class="input-group-btn"> 
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> 搜索</button> 
+                                </span>
+                            </div>
+                        </div>
+                    </form>                                                                  
+                </div>
+            </div>
+            <!--搜索框结束-->
+            <div class="hr-line-dashed"></div>
+
+            <div class="example-wrap">
+                <div class="example">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="long-tr">
+                                
+                                <th>订单号</th>
+                                <th>用户姓名</th>
+                                <th>订单价格</th>
+                                
+                                <th>状态</th>
+                                <th width="15%">下单时间</th>
+                                <th>接单骑手</th>
+                                <th>骑手电话</th>
+                                <th>取件地址</th>
+                                <th>取件号码</th>
+                                <th>收件地址</th>
+
+                                <th width="20%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="article_list">
+                           
+                                <tr class="long-td">
+                                    <td>{$cate.id}</td>
+                                    <td>{$cate.user_name}</td>
+                                    <td>{$cate.price}</td>
+                                                                                                 
+                                    <td>
+                                        {if condition="$cate['status'] == 0"}
+                                            <div>待接单</div>
+                                        {/if}
+                                         {if condition="$cate['status'] == 1"}   
+                                            <div>进行中</div>
+                                         {/if} 
+                                          {if condition="$cate['status'] == 2"}   
+                                            <div>已完成</div>
+                                         {/if} 
+                                          {if condition="$cate['status'] == 3"}   
+                                            <div>已退单</div>
+                                         {/if}  
+                                    </td>
+                                    <td>{$cate.order_time}</td>
+                                    <td>{$cate.car_name}</td>
+                                    <td>{$cate.car_phone}</td>
+                                    <td>{$cate.receive_address}</td>
+                                    <td>{$cate.receive_code}</td>
+                                    <td>{$cate.collect_address}</td>
+                                    <td>
+                                     {if condition="$cate['status'] == 0"}
+                                        <a href="{:url('edit_talents',['id'=>$cate.id])}" class="btn btn-primary btn-outline btn-xs">
+                                            <i class="fa fa-paste"></i> 编辑</a>&nbsp;&nbsp;
+                                        {/if}
+                                        <a href="javascript:;" onclick="del_talents({$cate.id})" class="btn btn-danger btn-outline btn-xs">
+                                            <i class="fa fa-trash-o"></i> 删除</a>   
+                                    </td>
+                                </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Panel Other -->
+</div>
+{include file="public/footer" /}
+
+
+<script type="text/javascript">
+
+/**
+ * [del 删除用户]
+ * @Author[田建龙 864491238@qq.com]
+ * @param   {[type]}    id [用户id]
+ */
+function del_talents(id){
+    layer.confirm('确认删除此订单?', {icon: 3, title:'提示'}, function(index){
+        //do something
+        $.getJSON('./del_talents', {'id' : id}, function(res){
+            if(res.code == 1){
+                layer.msg(res.msg,{icon:1,time:1500,shade: 0.1},function(){
+                    window.location.href="{:url('Talents/index')}";
+                });               
+            }else{
+                layer.msg(res.msg,{icon:0,time:1500,shade: 0.1});
+            }
+        });
+
+        layer.close(index);
+    })
+
+}
+
+/**
+ * [user_state 用户状态]
+ * @param  {[type]} val [description]
+ * @Author[田建龙 864491238@qq.com]
+ */
+function cate_state(val){
+    $.post('{:url("cate_state")}',
+    {id:val},
+    function(data){
+         
+        if(data.code==1){
+            var a='<span class="label label-danger">禁用</span>'
+            $('#zt'+val).html(a);
+            layer.msg(data.msg,{icon:2,time:1500,shade: 0.1,});
+            return false;
+        }else{
+            var b='<span class="label label-info">开启</span>'
+            $('#zt'+val).html(b);
+            layer.msg(data.msg,{icon:1,time:1500,shade: 0.1,});
+            return false;
+        }         
+        
+    });
+    return false;
+}
+
+
+</script>
+</body>
+</html>

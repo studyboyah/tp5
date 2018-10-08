@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+	<!-- 可选的Bootstrap主题文件（一般不使用） -->
+	<!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>-->
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->	
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="__JS__/bootstrap.min.js"></script>
+	<!--加载公共样式-->
+	<link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.css">
+	<!-- <link rel="stylesheet" type="text/css" href="__CSS__/footer.css"> -->
+	<link rel="stylesheet" type="text/css" href="__CSS__/public.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/peoplelist.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/public_header_pc.css" />
+	
+	<script type="text/javascript" src="__JS__/header.js"></script>
+	
+	<!-- 320加载样式 -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 350px) and (min-device-width: 319px)" href="__CSS__/phonepeople320.css"/>
+	<!-- 414加载样式 -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 420px) and (min-device-width: 360px)" href="__CSS__/phonepeople414.css"/>
+	<!-- 768加载样式 -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 780px) and (min-device-width: 750px)" href="__CSS__/ipadpeople768.css"/>
+	<!-- 1024加载样式 -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1030px) and (min-device-width: 1020px)" href="__CSS__/ipadpeople1024.css"/>
+	<!-- 1366加载样式 -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1370px) and (min-device-width: 1360px)" href="__CSS__/pcpeople1366.css"/>
+	<!-- 1440加载样式 -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1450px) and (min-device-width: 1430px)" href="__CSS__/pcpeople1440.css"/>
+	<!-- 1920加载样式 -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1925px) and (min-device-width: 1915px)" href="__CSS__/pcpeople1920.css"/>
+	<title>人才共享列表</title>
+</head>
+<body>
+<section id="box">
+	<!--头部-->
+{include file="public/header"}
+	<section class="locate container">
+		<p>您当前所在的位置：<a href="index.html">首页</a>/<a href="peoplelist.html">人才共享</a></p>
+	</section>
+	<!-- 这是内容 -->
+	<section id="main">
+		<ul>
+		{volist name='talent' id='v'}
+			<li>
+				<section class="fl left_z">
+					<p>{$v.title}</p>
+					<h3>田静</h3>
+					<p>{$v.remark}</p>
+					<!-- <p>◆ 会各种设计软件，更是PS熟练程度达到90%，AI熟练度80%</p>
+					<p>◆ 会手写代码HTML+css和JS的效果修改等</p>
+					<p>◆ 对设计有浓郁的爱好和设计制作能力，可敏锐发觉现在社会的设计流行趋势，观擦设业的社会发展。</p> -->
+					<a href="javascript:" class="hover">
+						read more++
+					</a>
+				</section>
+				<section class="fl right_y">
+					<img src="__UPLOAD__./{$v.photo}" alt="" class="peo04">
+					<section class="template">
+						<img src="__IMG__/peoplelist/zym.png" alt="">
+					</section>
+				</section>
+				<section class="clear"></section>
+			</li>
+			{/volist}
+			<!-- <li>
+				<section class="fr left_z">
+					<p>前端工程师</p>
+					<h3 class="name">岑双华</h3>
+					<p class="nones">十年工作经验。</p>
+					<p>精通数据库技术、软件过程理论与研究、软件测试、面相对象方法研究<span>.java、jsp、ssh、ajax、dwr、javascript、j2EE</span>企业级架构、服务器集群、WebLogic中间件。</p>
+					<a href="javascript:" class="act">
+						read more++
+					</a>
+				</section>
+				<section class="fl right_y">
+					<img src="__IMG__/peoplelist/main02.png" alt="" class="peo04">
+					<section class="template">
+						<img src="__IMG__/peoplelist/zym.png" alt="">
+					</section>
+				</section>
+				<section class="clear"></section>
+			</li>
+			<li>
+				<section class="dw"></section>
+				<section class="fl left_z">
+					<p>UI设计师</p>
+					<h3 class="name">何莉</h3>
+					<p>掌握前端开发的知识，以及Photoshop、图形设计以及代码编写的能力。设计理念强<span>，在产品功能和视觉元素间能满足产品的功能需求。</span></p>
+					<a href="javascript:">
+						read more++
+					</a>
+				</section>
+				<section class="fl right_y">
+					<img src="__IMG__/peoplelist/main03.png" alt="" class="peo04">
+					<section class="template">
+						<img src="__IMG__/peoplelist/zym.png" alt="">
+					</section>
+				</section>
+
+				<section class="clear"></section>
+			</li>
+			<li>
+				<section class="fr left_z">
+					<p>平面设计师</p>
+					<h3 class="name">李佳乐</h3>
+					<p>计算机相关专业毕业， 在J2EE体系结构使用Spring<span>MVC、mybatis</span>、Hibernate等开源框架 ,对MySQL,SQL<span>Server</span>等数据库性能<span>和系统性能</span>优化。</p>
+					<a href="javascript:" class="act">
+						read more++
+					</a>
+				</section>
+				<section class="fl right_y">
+					<img src="__IMG__/peoplelist/main04.png" alt="" class="peo04">
+					<section class="template">
+						<img src="__IMG__/peoplelist/zym.png" alt="">
+					</section>
+				</section>
+				<section class="clear"></section>
+			</li>
+			<li>
+				<section class="fl left_z">
+					<p>Java工程师</p>
+					<h3 class="name">何迪</h3>
+					<p>从事java开发10多年，精通java基础、javaweb、javaservice，java中间件开发</p>
+					<p class="none"> 精通mybaties,freemark,activities,shiro等。对缓存、优化、并发、大数据、集群，搜索引擎有深入研究。</p>
+					<a href="javascript:">
+						read more++
+					</a>
+				</section>
+				<section class="fl right_y">
+					<img src="__IMG__/peoplelist/main05.png" alt="" class="peo04">
+					<section class="template">
+						<img src="__IMG__/peoplelist/zym.png" alt="">
+					</section>
+				</section>
+				<section class="clear"></section>
+			</li> -->
+		</ul>
+		<section class="page">
+			<ul>
+				<li>
+					<a href="javascript:">首页</a>
+				</li>
+				<li>
+					<a href="javascript:">上一页</a>
+				</li>
+				<li>
+					<a href="javascript:">1</a>
+				</li>
+				<li>
+					<a href="javascript:">2</a>
+				</li>
+				<li>
+					<a href="javascript:">3</a>
+				</li>
+				<li>
+					<a href="javascript:">下一页</a>	
+				</li>
+				<section class="clear"></section>
+			</ul>
+		</section>
+	</section>
+	<!-- 底部 -->
+	{include file="public/footer" /}
+	<!-- 定位 -->
+	{include file="public/location" /}
+</section>
+	</body>
+	<script type="text/javascript" src="__JS__/jquery-1.9.1.js"></script>
+	<script type="text/javascript">
+		$('.peo').animate({
+			top:'37%',
+		},2000);
+		$('.peo01').animate({
+			top:'30%',
+			left:'25%',
+		},2000);
+		 $('.peo02').animate({
+		 	top:'26%',
+			right:'28%',
+		 },2000);
+		
+		
+		 
+		
+		$('.you ul li').mouseover(function(){
+			var index = $(this).index();
+			$('.you ul li').eq(index).addClass('actv').siblings().removeClass('actv');
+		});
+		// $('.you ul li').mouseout(function(){
+		// 	var index = $(this).index();
+		// 	$('.you ul li').eq(index).removeClass('actv');
+		// });
+var windowWidth = $(window).width();
+	if(windowWidth > 770){
+		$('.fax ul li').mouseover(function(){
+			var index = $(this).index();
+			$('.bug').eq(index).show();
+		});
+		$('.fax ul li').mouseout(function(){
+			var index = $(this).index();
+			$('.bug').eq(index).hide();
+		});
+	}
+		
+		
+	</script>
+	
+</html>

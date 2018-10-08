@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>优秀作品列表页</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/public.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/public_header_pc.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/outstandingWorkslist.css">
+	<!-- <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 420px) and (min-device-width: 350px)" href="css/iPhone6.css"/>
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 350px) and (min-device-width: 300px)" href="css/iPhone5.css"/>
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 770px) and (min-device-width: 700px)" href="css/iPad.css"/> -->
+	<link rel="stylesheet" type="text/css" media="screen and (min-device-width:320px) and (max-device-width:414px)" href="__CSS__/outstandingWorkslistPhone.css"/>
+	<link rel="stylesheet" type="text/css"  media="screen and (min-device-width:768px) and (max-device-width:1025px)" href="__CSS__/outstandingWorkslistIpad.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/location.css">
+	<script type="text/javascript" src="__JS__/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="__JS__/bootstrap.js"></script>
+	<script type="text/javascript" src="__JS__/header.js"></script>
+</head>
+<body>
+	<!-- 返回顶部的定位 -->
+	<a name="top"></a>
+	<section id="box" class="container-fluid">
+		<section class="box-header relative">
+			<!--导航栏背景-->
+			<section class="header-top-wrap absolute">
+				<!--导航栏-->
+				<header class="header-top">
+					<!--logo-->
+					<section class="fl logo">
+						<a href="index.html">
+							<img src="__IMG__/logo.png" alt="" height="60%"/>
+						</a>
+					</section>
+					<!--导航nav-->
+					<section class="fr topnav">
+						<section class="absolute closeX displaynone">
+							<img src="__IMG__/closeX.png" alt="" />
+						</section>
+						<nav>
+							<a href="index.html" class="active"><span class="active yispan">一</span><span class="phoneline">——</span>首页<span class="phoneline">——</span></a>
+							<a href="javascript:"><span class="yispan">一</span><span class="phoneline">——</span>业务体系<span class="phoneline">——</span></a>
+							<a href="{:url('product/index')}"><span class="yispan">一</span><span class="phoneline">——</span>优秀作品<span class="phoneline">——</span></a>
+							<a href="{:url('personnel/index')}"><span class="yispan">一</span><span class="phoneline">——</span>人才共享<span class="phoneline">——</span></a>
+							<a href="{:url('news/index')}"><span class="yispan">一</span><span class="phoneline">——</span>新闻动态<span class="phoneline">——</span></a>
+							<a href="{:url('about/index')}"><span class="yispan">一</span><span class="phoneline">——</span>关于我们<span class="phoneline">——</span></a>
+
+						</nav>
+					</section>
+					<section class="phonenav fr">
+						<img src="__IMG__/icon_phonenav.png" alt="" height="60%"/>	
+					</section>
+				</header>
+			</section>
+		</section>
+		<section id="content" class="container-fluid">
+			<section class="container-fluid banner">
+				<!-- PC端图 -->
+				<!-- <img src="images/excellentCase/bannner.png" alt="" class="bannerimg"> -->
+				<section class="banner_zi">
+					<img src="__IMG__/excellentCase/banner_zi.png">
+				</section>
+				<img src="__IMG__/excellentCase/banner_bg.png" alt="" class="bannerimg">
+				<!-- 手机页面图 -->
+				<img src="__IMG__/excellentCase/banner1_bg.png" alt="" class="bannerimg1">
+				<!-- <img src="images/excellentCase/banner1.png" alt="" class="bannerimg1"> -->
+			</section>
+			<!-- 当前位置 -->
+			<p class="container current">您当前所在的位置：首页/<a href="{:url('outstandingWorkslist')}"><span>优秀作品</span></a></p>
+			<section class="container main">
+				<!-- 标题 -->
+				<section class="container topic">
+					<ul>
+					{volist name='cate' id='cate'}
+						<li onclick="on()" class="cc"><a href="{:url('outstandingWorkslist',['id'=>$cate.id])}" {if condition="$cate.cate_id eq $cate.id"}{/if}>{$cate.name}</a> </li>
+						{/volist}
+						<!-- <li>网页设计</li>
+						<li>UI设计</li>
+						<li>平面设计</li>
+						<li>设计</li>
+						<li>网站建设</li>
+						<li>购物商城</li>
+						<li>微信开发</li> -->
+					</ul>
+				</section>
+				<!-- 作品列表 -->
+				<section class="container-fluid list">
+					<!-- ALL的全部作品列表 -->
+					<section class="block cs">
+						<!-- 作品列表上面部分 -->
+						<section class="container-fluid list_top">
+								<ul>
+								{volist name='all' id='v'}
+									<li>
+										<section class="pict">
+											<a href="#">
+												<img src="__UPLOAD__./{$v.img}">
+											</a>
+											<section class="mengban">
+												<a href="#"><img src="__IMG__/excellentCase/more.png"></a>
+											</section>
+										</section>
+										<p class="brand">{$v.title}</p>
+										<p class="company">{$v.describe}</p>
+									</li>
+									{/volist}
+								</ul>
+						</section>
+					</section>
+					<!-- 网页设计的作品列表 -->
+					<section class="cs">
+						<!-- 作品列表上面部分 -->
+						<?php foreach($cate as $k => $v){?>
+						<section class="container-fluid list_top">
+								<ul>
+								{volist name='all' id='val'}
+									<li>
+										<section class="pict">
+											<a href="#">
+												<img src="__UPLOAD__./{$val.img}">
+											</a>
+											<section class="mengban">
+												<a href="#"><img src="images/excellentCase/more.png"></a>
+											</section>
+										</section>
+										<p class="brand">Auall珠宝</p>
+										<p class="company">珠宝品牌商城设计</p>
+									</li>
+									{/volist}
+								</ul>
+						</section>
+						<?php }?>
+					</section>
+					<!-- UI设计的作品列表 -->
+					<section class="cs">
+						<!-- 作品列表上面部分 -->
+						<?php foreach($cate as $k => $v){?>
+						<section class="container-fluid list_top">
+								<ul>
+								{volist name='all' id='val'}
+									<li>
+										<section class="pict">
+											<a href="#">
+												<img src="__UPLOAD__./{$val.img}">
+											</a>
+											<section class="mengban">
+												<a href="#"><img src="images/excellentCase/more.png"></a>
+											</section>
+										</section>
+										<p class="brand">Auall珠宝</p>
+										<p class="company">珠宝品牌商城设计</p>
+									</li>
+									{/volist}
+								</ul>
+						</section>
+						<?php }?>
+					</section>
+					<!-- 平面设计的作品列表 -->
+					<section class="cs">
+						<?php foreach($cate as $k => $v){?>
+						<section class="container-fluid list_top">
+								<ul>
+								{volist name='all' id='val'}
+									<li>
+										<section class="pict">
+											<a href="#">
+												<img src="__UPLOAD__./{$val.img}">
+											</a>
+											<section class="mengban">
+												<a href="#"><img src="images/excellentCase/more.png"></a>
+											</section>
+										</section>
+										<p class="brand">Auall珠宝</p>
+										<p class="company">珠宝品牌商城设计</p>
+									</li>
+									{/volist}
+								</ul>
+						</section>
+						<?php }?>
+					</section>
+					<!-- 网站建设的作品列表 -->
+					<section class="cs">
+						<!-- 作品列表上面部分 -->
+						<?php foreach($cate as $k => $v){?>
+						<section class="container-fluid list_top">
+								<ul>
+								{volist name='all' id='val'}
+									<li>
+										<section class="pict">
+											<a href="#">
+												<img src="__UPLOAD__./{$val.img}">
+											</a>
+											<section class="mengban">
+												<a href="#"><img src="images/excellentCase/more.png"></a>
+											</section>
+										</section>
+										<p class="brand">Auall珠宝</p>
+										<p class="company">珠宝品牌商城设计</p>
+									</li>
+									{/volist}
+								</ul>
+						</section>
+						<?php }?>
+					</section>
+					<!-- 购物商城的作品列表 -->
+					<section class="cs">
+						<!-- 作品列表上面部分 -->
+						<?php foreach($cate as $k => $v){?>
+						<section class="container-fluid list_top">
+								<ul>
+								{volist name='all' id='val'}
+									<li>
+										<section class="pict">
+											<a href="#">
+												<img src="__UPLOAD__./{$val.img}">
+											</a>
+											<section class="mengban">
+												<a href="#"><img src="images/excellentCase/more.png"></a>
+											</section>
+										</section>
+										<p class="brand">Auall珠宝</p>
+										<p class="company">珠宝品牌商城设计</p>
+									</li>
+									{/volist}
+								</ul>
+						</section>
+						<?php }?>
+					</section>
+					<!-- 微信开发的作品列表 -->
+					<section class="cs">
+						<!-- 作品列表上面部分 -->
+						<?php foreach($cate as $k => $v){?>
+						<section class="container-fluid list_top">
+								<ul>
+								{volist name='all' id='val'}
+									<li>
+										<section class="pict">
+											<a href="#">
+												<img src="__UPLOAD__./{$val.img}">
+											</a>
+											<section class="mengban">
+												<a href="#"><img src="images/excellentCase/more.png"></a>
+											</section>
+										</section>
+										<p class="brand">Auall珠宝</p>
+										<p class="company">珠宝品牌商城设计</p>
+									</li>
+									{/volist}
+								</ul>
+						</section>
+						<?php }?>
+					</section>
+				</section>
+			</section>
+				<!-- 翻页 -->
+<!-- 				<ul class="pagination">
+<li><a href="?page=1">&laquo;</a></li>
+<li><a href="?page=1">1</a></li>
+<li class="active"><span>2</span></li>
+<li class="disabled"><span>&raquo;</span></li>
+</ul> -->
+		
+			<section class="container flip">
+				<ul>
+					<li>首页</li>
+					<li>上一页</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>下一页</li>
+				</ul>
+			</section>
+		</section>
+		<!-- 底部 -->
+		{include file='public/footer'}
+		<!-- 定位 -->
+		{include file='public/location'}
+	</section>
+</body>
+<script type="text/javascript">
+	$('.topic ul li').click(function(){
+		 var a= $(this).index(); //获取用户点击的索引值
+     $('.topic ul li').eq(a).addClass('act').siblings().removeClass('act');
+     $('.list .cs').eq(a).addClass('block').siblings().removeClass('block');
+	});
+</script>
+<script type="text/javascript">	
+	$(document).ready(function(){
+		$('.fax ul li').mouseover(function(){
+			var index = $(this).index();
+			$('.bug').eq(index).show();
+		});
+		$('.fax ul li').mouseout(function(){
+			var index = $(this).index();
+			$('.bug').eq(index).hide();
+
+		});
+		// // 意见正则验证过滤脏话
+		// var oInput = $('advice_content');
+		// var exp = /草|原/g;
+		// oInput.value = oInput.value.replace(exp,'*');
+	});
+	function on(){
+		var index=$(this).index;
+		$('.cc').click().eq().addClass('act').siblings().removeClass('act');
+	}
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- 可选的Bootstrap主题文件（一般不使用） -->
+	<!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>-->
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="__JS__/bootstrap.min.js"></script>
+	<!--加载公共样式-->
+	<link rel="stylesheet" type="text/css" href="__CSS__/public.css" />
+	<!--<link rel="stylesheet" type="text/css" href="css/publicAA.css"/>-->
+	<link rel="stylesheet" type="text/css" href="__CSS__/public_header_pc.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/aboutus.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/location.css" />
+	<script type="text/javascript" src="__JS__/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="__JS__/header.js"></script>>
+</head>
+<body>
+	<section class="box-header relative">
+		<!--导航栏背景-->
+		<section class="header-top-wrap absolute">
+			<!--导航栏-->
+			<header class="header-top">
+				<!--logo-->
+				<section class="fl logo">
+					<a href="index.html">
+						<img src="__IMG__/logo.png" alt="" height="60%"/>
+					</a>
+				</section>
+				<!--导航nav-->
+				<section class="fr topnav">
+					<section class="absolute closeX displaynone">
+						<img src="__IMG__/closeX.png" alt="" />
+					</section>
+					<nav>
+						<a href="index.html" class="active"><span class="active yispan">一</span><span class="phoneline">——</span>首页<span class="phoneline">——</span></a>
+						<a href="javascript:"><span class="yispan">一</span><span class="phoneline">——</span>业务体系<span class="phoneline">——</span></a>
+						<a href="{:url('product/outstandingWorkslist')}"><span class="yispan">一</span><span class="phoneline">——</span>优秀作品<span class="phoneline">——</span></a>
+						<a href="{:url('personnel/index')}"><span class="yispan">一</span><span class="phoneline">——</span>人才共享<span class="phoneline">——</span></a>
+						<a href="{:url('news/newslist')}"><span class="yispan">一</span><span class="phoneline">——</span>新闻动态<span class="phoneline">——</span></a>
+						<a href="{:url('about/index')}"><span class="yispan">一</span><span class="phoneline">——</span>关于我们<span class="phoneline">——</span></a>
+					</nav>
+				</section>
+				<section class="phonenav fr">
+					<img src="__IMG__/icon_phonenav.png" alt="" height="60%"/>	
+				</section>
+			</header>
+		</section>	
+		<!--banner图-->
+		<section class="banner">
+			<img src="__IMG__/1-01.png" width="100%" />
+		</section>
+		<!--头部主体内容-->
+		<section class="top-main absolute">
+			<!-- 关于我们 -->
+			<section class="about absolute">
+				<img src="__IMG__/1-02.png" alt="">
+				<img src="__IMG__/1-02.png" alt="">
+				<img src="__IMG__/1-03.png" alt="">
+			</section>
+			<!--当前位置-->
+			<section class="currentPositon absolute">
+				<p>您当前所在的位置：<a href="index.html">首页</a>/<a href="{:url('about/index')}">关于我们</a></p>
+			</section>
+		</section>
+	</section>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>新闻列表页</title>
+	<link rel="stylesheet" href="__CSS__/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/public.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/public_header_pc.css" />
+	<link rel="stylesheet" href="__CSS__/newslist.css">
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1025px) and (min-device-width: 319px)" href="__CSS__/newslistphone.css" />
+	<link rel="stylesheet" href="__CSS__/footer.css">
+	<!-- <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 420px) and (min-device-width: 350px)" href="css/iPhone6.css"/>
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 350px) and (min-device-width: 300px)" href="css/iPhone5.css"/>
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 770px) and (min-device-width: 700px)" href="css/iPad.css"/> -->
+	<link rel="stylesheet" href="__CSS__/location.css">
+	<script type="text/javascript" src="__JS__/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="__JS__/bootstrap.js"></script>
+	<script type="text/javascript" src="__JS__/header.js"></script>
+
+</head>
+<body>
+<!-- 返回顶部的定位 -->
+<a name="top"></a>
+	<!--头部-->
+	<section class="box-header relative">
+		<!--导航栏背景-->
+		<section class="header-top-wrap absolute">
+			<!--导航栏-->
+			<header class="header-top">
+				<!--logo-->
+				<section class="fl logo">
+					<a href="index.html">
+						<img src="__IMG__/logo.png" alt="" height="60%"/>
+					</a>
+				</section>
+				<!--导航nav-->
+				<section class="fr topnav">
+					<section class="absolute closeX displaynone">
+						<img src="__IMG__/closeX.png" alt="" />
+					</section>
+					<nav>
+						<a href="index.html" class="active"><span class="active yispan">一</span><span class="phoneline">——</span>首页<span class="phoneline">——</span></a>
+						<a href="javascript:"><span class="yispan">一</span><span class="phoneline">——</span>业务体系<span class="phoneline">——</span></a>
+						<a href="{:url('product/outstandingWorkslist')}"><span class="yispan">一</span><span class="phoneline">——</span>优秀作品<span class="phoneline">——</span></a>
+						<a href="{:url('personnel/index')}"><span class="yispan">一</span><span class="phoneline">——</span>人才共享<span class="phoneline">——</span></a>
+						<a href="{:url('news/newslist')}"><span class="yispan">一</span><span class="phoneline">——</span>新闻动态<span class="phoneline">——</span></a>
+						<a href="{:url('about/index')}"><span class="yispan">一</span><span class="phoneline">——</span>关于我们<span class="phoneline">——</span></a>
+					</nav>
+				</section>
+				<section class="phonenav fr">
+					<img src="__IMG__/icon_phonenav.png" alt="" height="60%"/>	
+				</section>
+			</header>
+		</section>
+	</section>
+	<section id="center" class="container-fluid">
+		<!-- 轮播图 -->
+		<section class="container-fluid banner">
+			<!-- PC端图 -->
+			<img src="__IMG__/newslist/banner.png" alt="" class="bannerimg">
+			<!-- 手机页面图 -->
+			<img src="__IMG__/newslist/banner1.png" alt="" class="bannerimg1">
+			<img src="__IMG__/newslist/copy.png" alt="" class="copy">
+		</section>
+		<!-- 当前位置 -->
+		<p class="container current">您当前所在的位置：首页/<a href="{:url('newslist')}"><span>新闻动态</span></a></p>
+		<!-- 选项卡 -->
+		<p class="container xuanxiang">
+			<!-- <a href="" class="action">ALL</a> -->
+		{volist name='cate' id='cate'}
+			<a href="{:url('newslist',['id'=>$cate.id])}" {if condition="$cate.cate_id eq $cate.id"} class="action" {/if}>{$cate.name}</a>  
+		{/volist}
+			<!-- <a href="javascript:">行业动态</a> -->
+		</p>
+		<!-- 主要内容 -->
+		<section class="container main dismain">
+			<ul>
+			{volist name='all' id='v'}
+				<a href="{:url('news_page',['id'=>$v.id])}"><li>
+					<section>
+						<img src="__UPLOAD__./{$v.photo}" alt="">
+						<section class="template">+</section>
+					</section> 
+					<section class="explain">
+						<p>{$v.title}</p>
+						<p>time：{$v.update_time}</p>
+						<p>{$v.content}</p>
+					</section>
+				</li></a>
+			{/volist}
+			
+			</ul>
+		</section>
+	<?php foreach($cate as $k => $v){?>
+		<section class="container main">
+			<ul>
+			{volist name='all' id='val'}
+				<a href="{:url('news_page',['id'=>$val.id])}"><li>
+					<section>
+						<img src="__UPLOAD__./{$val.photo}" alt="">
+						<section class="template">+</section>
+					</section>
+					<section class="explain">
+						<p>{$val.title}</p>
+						<p>time：{$val.update_time}</p>
+						<p>{$val.content}</p>
+					</section>
+				</li></a>
+			{/volist}
+				
+			</ul>
+		</section>
+	<?php }?>
+		<section class="container flip">
+			<ul>
+				<li>首页</li>
+				<li>上一页</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>下一页</li>
+			</ul>
+		</section>
+	</section>
+	{include file='public/footer'}
+	<!-- 右边固定定位 -->
+	<section id="location">
+		<section class="contact_us">
+			<img src="__IMG__/tele.png" alt="">
+			联系我们
+		</section>
+		<section class="dwproduct">
+			<img src="__IMG__/qq.png" alt="">
+			QQ
+		</section>
+		<section class="returntop">
+			<a href="#top"><img src="__IMG__/top.png" alt=""></a>
+		</section>
+	</section>
+</body>
+<script type="text/javascript" src="__JS__/newslist.js"></script>
+<script type="text/javascript">	
+	var windowWidth = $(window).width();
+	if(windowWidth > 770){
+		$('.fax ul li').mouseover(function(){
+			var index = $(this).index();
+			$('.bug').eq(index).show();
+		});
+		$('.fax ul li').mouseout(function(){
+			var index = $(this).index();
+			$('.bug').eq(index).hide();
+		});
+	}
+	// function cate(id){
+ //    $.ajax({
+ //        type:'POST',
+ //        url:'news.php',
+ //        data: id,
+        
+ //    });
+}
+</script>
+</html>

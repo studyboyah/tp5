@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于我们</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- 可选的Bootstrap主题文件（一般不使用） -->
+	<!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>-->
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="__JS__/bootstrap.min.js"></script>
+	<!--加载公共样式-->
+	<link rel="stylesheet" type="text/css" href="__CSS__/public.css" />
+	<!--<link rel="stylesheet" type="text/css" href="css/publicAA.css"/>-->
+	<link rel="stylesheet" type="text/css" href="__CSS__/public_header_pc.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/aboutus.css" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/location.css" />
+	<script type="text/javascript" src="__JS__/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="__JS__/header.js"></script>
+</head>
+<body>
+	<!-- 返回顶部的定位 -->
+	<a name="top"></a>
+	<!--头部-->
+		<section class="box-header relative">
+		<!--导航栏背景-->
+		<section class="header-top-wrap absolute">
+			<!--导航栏-->
+			<header class="header-top">
+				<!--logo-->
+				<section class="fl logo">
+					<a href="index.html">
+						<img src="__IMG__/logo.png" alt="" height="60%"/>
+					</a>
+				</section>
+				<!--导航nav-->
+				<section class="fr topnav">
+					<section class="absolute closeX displaynone">
+						<img src="__IMG__/closeX.png" alt="" />
+					</section>
+				<nav>
+						<a href="index.html" class="active"><span class="active yispan">一</span><span class="phoneline">——</span>首页<span class="phoneline">——</span></a>
+						<a href="javascript:"><span class="yispan">一</span><span class="phoneline">——</span>业务体系<span class="phoneline">——</span></a>
+						<a href="{:url('product/outstandingWorkslist')}"><span class="yispan">一</span><span class="phoneline">——</span>优秀作品<span class="phoneline">——</span></a>
+						<a href="{:url('personnel/index')}"><span class="yispan">一</span><span class="phoneline">——</span>人才共享<span class="phoneline">——</span></a>
+						<a href="{:url('news/newslist')}"><span class="yispan">一</span><span class="phoneline">——</span>新闻动态<span class="phoneline">——</span></a>
+						<a href="{:url('about/index')}"><span class="yispan">一</span><span class="phoneline">——</span>关于我们<span class="phoneline">——</span></a>
+					</nav>
+				</section>
+				<section class="phonenav fr">
+					<img src="__IMG__/icon_phonenav.png" alt="" height="60%"/>	
+				</section>
+			</header>
+		</section>	
+		<!--banner图-->
+		<section class="banner">
+			<img src="__IMG__/1-01.png" width="100%" />
+		</section>
+		<!--头部主体内容-->
+		<section class="top-main absolute">
+			<!-- 关于我们 -->
+			<section class="about absolute">
+				<img src="__IMG__/1-02.png" alt="">
+				<img src="__IMG__/1-02.png" alt="">
+				<img src="__IMG__/1-03.png" alt="">
+			</section>
+			<!--当前位置-->
+			<section class="currentPositon absolute">
+				<p>您当前所在的位置：<a href="index.html">首页</a>/<a href="aboutus.html">关于我们</a></p>
+			</section>
+		</section>
+	</section>
+	<!-- 内容 -->
+	<section class="profile">
+		<p>{$profile.title}<br>
+			<span>{$profile.e_title}</span>
+		</p>
+	</section>
+	<section class="Company_profile">
+		<p>{$profile.name1}</p>
+	</section>
+	<section class="Company">
+		<img src="__IMG__/1-05.png" alt="" class="fl" width="55.92%">
+		<section class="fr">
+			<p>{$profile.name2}</p>
+			<span>
+				<p>{$profile.name3}</p>
+				<p>{$profile.name4}</p>
+				<p>{$profile.name5}</p>
+			</span>
+		</section>
+		<section class="clear"></section>
+	</section>
+	<section class="corporate_culture">
+		<section class="corporate">
+			<p>{$culture.name}<br>
+				<span>{$culture.e_name}</span>
+			</p>
+		</section>
+		<section class="culture">
+			<ul>
+			{volist name='ideas' id='v'}
+				<li>
+					<a href="JavaScript:">
+						<img src="__UPLOAD__./{$v.map}" alt="">
+					</a>
+					<p><b>{$v.idea}</b><br>
+					<span>{$v.content}</span></p>
+				</li>
+				{/volist}
+				<!-- <li>
+					<a href="JavaScript:">
+						<img src="__IMG__/1-08.png" alt="">
+					</a>
+					<p><b>人才理念</b><br>
+					<span>不拘一格，人尽其才</span></p>
+				</li>
+				<li>
+					<a href="JavaScript:">
+						<img src="__IMG__/1-10.png" alt="">
+					</a>
+					<p><b>人才理念</b><br>
+					<span>不拘一格，人尽其才</span></p>
+				</li>
+				<li>
+					<a href="JavaScript:">
+						<img src="__IMG__/1-09.png" alt="">
+					</a>
+					<p><b>人才理念</b><br>
+					<span>不拘一格，人尽其才</span></p>
+				</li>
+				<li>
+					<a href="JavaScript:">
+						<img src="__IMG__/1-11.png" alt="">
+					</a>
+					<p><b>人才理念</b><br>
+					<span>不拘一格，人尽其才</span></p>
+				</li> -->
+			</ul>
+			<section class="clear"></section>
+		</section>
+	</section>
+	<section class="worth">
+		<section class="worth_left fl">
+			<p>{$culture.pc_content}</p>
+			<!-- <p>行业价值——成为一个聚集众多IT精英自由发挥的平台</p>
+			<span>
+				<p>人文价值——成为一个跨时代、有主张、有号召力的信息网络</p>
+				<p>不拘一格 人尽其才</p>
+				<p>优秀的人才是全方位的素质提升</p>
+				<p>优秀的人才是商脉生存发展的源动力</p>
+				<p>不一味迎合市场，创造来源于客户与设计师的良性互动</p>
+			</span> -->
+		</section>
+		<section class="worth_right fr relative">
+	
+			<img src="__UPLOAD__./{$culture.cul_img}" alt="">
+
+			<img src="__IMG__/1-13.png" alt="" class="worth_cen absolute">
+			<img src="__IMG__/1-14.png" alt="" class="worth_con absolute">
+		</section>
+		<section class="clear"></section>
+	</section>
+	<!-- 底部 -->
+	{include file="public/footer" /}
+	<!-- 定位 -->
+	{include file="public/location" /}
+</body>
+<script type="text/javascript">	
+	var windowWidth = $(window).width();
+	if(windowWidth > 770){
+		$('.fax ul li').mouseover(function(){
+			var index = $(this).index();
+			$('.bug').eq(index).show();
+		});
+		$('.fax ul li').mouseout(function(){
+			var index = $(this).index();
+			$('.bug').eq(index).hide();
+		});
+	}
+</script>
+<script type="text/javascript" src="__JS__/aboutus.js"></script>
+</html>
